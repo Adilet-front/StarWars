@@ -1,0 +1,35 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  h2 {
+    font-size: 80px;
+    color: yellow;
+  }
+  div {
+    display: flex;
+    gap: 20px;
+    .card {
+      width: 400px;
+      height: 600px;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      p {
+        position: absolute;
+        font-size: 32px;
+        width: max-content;
+        left: 50%;
+        transform: translate(-50%);
+        bottom: 40px;
+      }
+    }
+  }
+}
