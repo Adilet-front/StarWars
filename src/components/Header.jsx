@@ -16,19 +16,44 @@ export const Header = () => {
               </div>
             </li>
             <li>
-              <NavLink to={"/"}>Home</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.active : "")}
+                to={"/"}
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/people"}>People</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.active : "")}
+                to={"/people"}
+              >
+                People
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/search"}>Search</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.active : "")}
+                to={"/search"}
+              >
+                Search
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/*"}>Not Found</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.active : "")}
+                to={"/*"}
+              >
+                Not Found
+              </NavLink>
             </li>
             <li>
-              <NavLink to={"/fail"}>Fail</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.active : "")}
+                to={"/fail"}
+              >
+                Fail
+              </NavLink>
             </li>
           </ul>
         </nav>
