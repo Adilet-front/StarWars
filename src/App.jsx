@@ -2,7 +2,9 @@ import { Route, Routes } from "react-router";
 import styles from "./styles/App.module.scss";
 import { routes } from "./routes/routesConfig";
 import { Header } from "./components/Header";
+
 function App() {
+
   return (
     <>
       <div className={styles.wrapper}>

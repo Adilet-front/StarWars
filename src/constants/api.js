@@ -1,8 +1,7 @@
 export const HTTPS = "https://";
 export const HTTP = "http://";
 
-export const SWAPI_ROOT = "swapi.tech/api/";
-export const SWAPI_PEOPLE = "people";
-export const SWAPI_PAGE = "/?page=";
+export const SWAPI_ROOT = "akabab.github.io/starwars-api/api/";
+export const SWAPI_PEOPLE = "all.json";
 
-export const API_PEOPLE = HTTPS + SWAPI_ROOT + SWAPI_PEOPLE + SWAPI_PAGE;
+export const API_PEOPLE = HTTPS + SWAPI_ROOT + SWAPI_PEOPLE;
