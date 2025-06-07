@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGetPeople } from "../store/features/getPeopleSlice";
-
+import "../styles/PeoplePage.scss";
 export const PeoplePage = () => {
   const dispatch = useDispatch();
   const { people, loading, error } = useSelector((s) => s.getPeople);
@@ -25,10 +25,21 @@ export const PeoplePage = () => {
     );
   }
   return (
-    <div>
-      {people?.map((el) => (
-        <h2>{el.name}</h2>
-      ))}
+    <div className="wrapper">
+      <div className="card">
+        {people?.map((el) => (
+          <div className="person-card" key={el.id}>
+            <img src={el.image} alt="" />
+            <h2>{el.name}</h2>
+            <span>Height: {el.height}</span>
+            <span>mass:{el.mass}</span>
+            <span>Gender: {el.gender}</span>
+            <span>
+              <a href={el.wiki}>More about him</a>
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
