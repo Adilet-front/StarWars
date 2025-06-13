@@ -1,4 +1,5 @@
 import { CategoryPage } from "../pages/CategoryPage";
+import { Detaillooking } from "../pages/Detaillooking";
 import { FailPage } from "../pages/FailPage";
 import { FavoritePage } from "../pages/FavoritePage";
 import { HomePages } from "../pages/HomePages";
@@ -35,4 +36,8 @@ export const routes = [
     path: "fail",
     element: <FailPage />,
   },
+  {
+    path: "watch/:id",
+    element: <Detaillooking/>
+  }
 ];

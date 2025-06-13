@@ -19,7 +19,9 @@ const initialState = {
 const getPeopleSlice = createSlice({
   name: "getPeople",
   initialState,
-  reducers: {},
+  reducers: {
+    
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchGetPeople.fulfilled, (state, action) => {
       state.people = action.payload;
