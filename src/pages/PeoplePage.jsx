@@ -5,7 +5,7 @@ import { nextPagination, prevPagination } from "../store/features/helperQSlice";
 export const PeoplePage = () => {
   const { people, loading, error } = useSelector((s) => s.getPeople);
   const { count, pagination } = useSelector((state) => state.pagination);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   if (loading) {
     return (
@@ -40,10 +40,9 @@ export const PeoplePage = () => {
             </span>
           </div>
         ))}
-        <div style={{ display: "flex", gap: "50px", alignItems:  "center" }}>
+        <div style={{ display: "flex", gap: "50px", alignItems: "center" }}>
           <button
-          onClick={() => dispatch(prevPagination(pagination.page))}
-
+            onClick={() => dispatch(prevPagination(pagination.page))}
             disabled={pagination.page <= 0 ? true : false}
             style={{ fontSize: "32px", padding: "20px", cursor: "pointer" }}
           >
@@ -53,7 +52,7 @@ export const PeoplePage = () => {
             {count}
           </p>
           <button
-          onClick={() => dispatch(nextPagination(pagination.page))}
+            onClick={() => dispatch(nextPagination(pagination.page))}
             disabled={pagination.page >= 80 ? true : false}
             style={{ fontSize: "32px", padding: "20px", cursor: "pointer" }}
           >
