@@ -1,7 +1,82 @@
+import { useDispatch, useSelector } from "react-redux";
+import "../styles/PeoplePage.scss";
+import { NavLink } from "react-router";
+import { nextPagination, prevPagination } from "../store/features/helperQSlice";
+import { useState } from "react";
 export const SearchPage = () => {
+  const { people, loading, error } = useSelector((s) => s.getPeople);
+  const { count, pagination } = useSelector((state) => state.pagination);
+  const dispatch = useDispatch();
+  const [value, setValue] = useState("");
+
+  if (loading) {
+    return (
+      <div>
+        <h1 style={{ color: "white" }}>Loading</h1>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h1 style={{ color: "white" }}>Error get people</h1>
+      </div>
+    );
+  }
+
+  const peopleFilter = people.filter((person) => {
+    return person.name.toLowerCase().includes(value.toLowerCase());
+  });
+
   return (
-    <div>
-      <h1>SearchPage</h1>
+    <div className="wrapper">
+      <div className="form">
+        <form className="search_form">
+          <input
+            type="text"
+            placeholder="Search person"
+            className="Search_input"
+            onChange={(event) => setValue(event.target.value)}
+          />
+        </form>
+      </div>
+      <div className="card">
+        {peopleFilter?.map((el) => (
+          <div className="person-card" key={el.id}>
+            <NavLink to={`/watch/${el.id}`}>
+              <img src={el.image} alt="" />
+            </NavLink>
+
+            <h2>{el.name}</h2>
+            <span>Height: {el.height}</span>
+            <span>mass:{el.mass}</span>
+            <span>Gender: {el.gender}</span>
+            <span>
+              <a href={el.wiki}>More about him</a>
+            </span>
+          </div>
+        ))}
+        <div style={{ display: "flex", gap: "50px", alignItems: "center" }}>
+          <button
+            onClick={() => dispatch(prevPagination(pagination.page))}
+            disabled={pagination.page <= 0 ? true : false}
+            style={{ fontSize: "32px", padding: "20px", cursor: "pointer" }}
+          >
+            prev
+          </button>
+          <p style={{ fontSize: "32x", color: "white", lineHeight: "0" }}>
+            {count}
+          </p>
+          <button
+            onClick={() => dispatch(nextPagination(pagination.page))}
+            disabled={pagination.page >= 80 ? true : false}
+            style={{ fontSize: "32px", padding: "20px", cursor: "pointer" }}
+          >
+            next
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
