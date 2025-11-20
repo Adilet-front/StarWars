@@ -1,36 +1,108 @@
-.container {
+.homePage {
+  position: relative;
+  min-height: calc(100vh - 120px);
+  padding: 5rem 2rem;
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 20%, #17223a, #040716 75%);
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
   width: 100%;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
-  h2 {
-    font-size: 80px;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  div {
-    display: flex;
-    gap: 20px;
-    .card {
-      width: 400px;
-      height: 600px;
-      position: relative;
-      overflow: hidden;
+  gap: 3rem;
+  align-items: center;
+  text-align: center;
 
-      img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      p {
-        position: absolute;
-        font-size: 32px;
-        width: max-content;
-        left: 50%;
-        transform: translate(-50%);
-        bottom: 40px;
-      }
-    }
+  h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: #f6c343;
   }
 }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  height: 480px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 200ms ease, border-color 200ms ease;
+  background: rgba(255, 255, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: rgba(246, 195, 67, 0.7);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85);
+    transition: filter 200ms ease;
+  }
+
+  &:hover img {
+    filter: brightness(1);
+  }
+}
+
+.imgText {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  &[data-color="light"] {
+    color: #6bf178;
+  }
+  &[data-color="dark"] {
+    color: #ff6b6b;
+  }
+  &[data-color="neutral"] {
+    color: #ffe066;
+  }
+}
+
+@media (max-width: 768px) {
+  .homePage {
+    padding: 3.5rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  .card {
+    height: 360px;
+  }
+}
+

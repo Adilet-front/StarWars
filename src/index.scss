@@ -6,16 +6,66 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 :root {
-  --background: url("./assets/images/bg.jpg");
+  --background: #030617;
 }
 body.light {
-  --background: green;
+  --background: #0d2038;
 }
 body.dark {
-  --background: red;
+  --background: #01030a;
+}
+body.solo {
+  --background: #1c0c2a;
 }
 
 body {
   background: var(--background);
-  object-fit: cover;
+  color: #f8f8f8;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: -10%;
+  z-index: -1;
+  pointer-events: none;
+  background-repeat: repeat;
+  opacity: 0.45;
+  animation: starDrift 45s linear infinite;
+}
+
+body::before {
+  background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.8) 0.5px,
+      transparent 1px
+    ),
+    radial-gradient(circle, rgba(246, 195, 67, 0.65) 0.6px, transparent 1.8px),
+    radial-gradient(circle, rgba(108, 207, 246, 0.6) 0.7px, transparent 2px);
+  background-size: 160px 160px, 220px 220px, 260px 260px;
+  filter: blur(0.3px);
+}
+
+body::after {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.9) 1px,
+    transparent 2px
+  );
+  background-size: 320px 320px;
+  opacity: 0.25;
+  animation-duration: 70s;
+}
+
+@keyframes starDrift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-400px);
+  }
 }

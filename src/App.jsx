@@ -4,19 +4,14 @@ import { routes } from "./routes/routesConfig";
 import { Header } from "./components/Header";
 import { useEffect } from "react";
 import { fetchGetPeople } from "./store/features/getPeopleSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function App() {
-  const { pagination } = useSelector((state) => state.pagination);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchGetPeople(pagination));
-  }, [pagination, dispatch]);
-  console.log("gogogogogoggog", pagination);
-  
-  console.log(pagination);
-  
+    dispatch(fetchGetPeople());
+  }, [dispatch]);
 
   return (
     <>
