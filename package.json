@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.8.2",
+    "@tsparticles/react": "^3.0.0",
+    "@tsparticles/slim": "^3.9.1",
     "axios": "^1.9.0",
     "clone": "^2.1.2",
     "react": "^19.1.0",
@@ -20,7 +22,8 @@
     "react-router": "^7.6.1",
     "react-router-dom": "^7.6.1",
     "sass": "^1.89.0",
-    "starwars": "github:Talgat-07/last-lesson"
+    "starwars": "github:Talgat-07/last-lesson",
+    "tsparticles": "^3.9.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

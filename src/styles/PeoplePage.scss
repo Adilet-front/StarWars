@@ -1,41 +1,180 @@
-.card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 40px;
+.peoplePage {
+  position: relative;
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  background: radial-gradient(circle at 20% 20%, #0f1a2c, #030617 70%);
+
+  &__stars {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+
+    h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      text-transform: uppercase;
+      letter-spacing: 0.35rem;
+      color: #f6c343;
+    }
+
+    p {
+      max-width: 560px;
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.75rem;
+  }
 
   .person-card {
-    background-color: white;
-    width: 350px;
-    height: 100%;
-    border-radius: 4px;
-    padding: 1px;
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.25rem;
     display: flex;
-    gap: 8px;
     flex-direction: column;
-    align-items: center;
+    gap: 0.6rem;
+    color: #f4f4f4;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.35);
+    transition: transform 200ms ease, border-color 200ms ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 199, 70, 0.6);
+    }
+
     img {
-      object-fit: cover;
       width: 100%;
-      height: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 0.5rem;
     }
-    h2 {
-      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-        "Lucida Sans", Arial, sans-serif;
+
+    h3 {
+      font-size: 1.3rem;
+      letter-spacing: 0.05rem;
     }
+
     span {
-      font-family: "Times New Roman", Times, serif;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.85);
+
       a {
+        color: #6ccff6;
         text-decoration: none;
-        color: black;
-        cursor: pointer;
-        border: 1px solid black;
-        background-color: lightblue;
+        font-weight: 600;
       }
+
       a:hover {
-        background-color: red;
+        text-decoration: underline;
       }
     }
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 0.8rem 2.2rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #f6c343, #f0932b);
+      color: #030617;
+      cursor: pointer;
+      transition: transform 150ms ease, opacity 150ms ease;
+
+      &:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+      }
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.2rem;
+      letter-spacing: 0.25rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &--centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 2rem;
+      color: #f6c343;
+      letter-spacing: 0.3rem;
+      text-transform: uppercase;
+    }
+  }
+
+  .person-card__favorite {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(3, 6, 23, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 150ms ease, transform 150ms ease;
+
+    img {
+      width: 22px;
+      height: 22px;
+    }
+
+    &:hover {
+      border-color: rgba(246, 195, 67, 0.8);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .peoplePage {
+    padding: 3.5rem 1.5rem;
   }
 }

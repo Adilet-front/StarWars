@@ -1,41 +1,64 @@
 .NotFound {
-  width: 100%;
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
+  padding: 5rem 2rem;
   display: flex;
+  align-items: center;
   justify-content: center;
-background-color: white;
-  .NotFDText {
-    max-width: 500px;
-    width: 100%;
-    height: 100vh;
-    max-height: 500px;
-    background-image: url("https://i.pinimg.com/736x/04/51/6c/04516c1b83cc0bc4bf7d740571990956.jpg");
-    object-fit: cover;
+  overflow: hidden;
+  background: radial-gradient(circle at 35% 20%, #242f51, #050816 70%);
 
+  &__stars {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    width: min(560px, 100%);
+    border-radius: 36px;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+    background: rgba(3, 6, 23, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(18px);
+  }
+
+  &__code {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 49px;
+    gap: 1.5rem;
+    font-size: clamp(4rem, 8vw, 8rem);
+    color: #f6c343;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
 
-    h1 {
-      color: red;
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
-      font-size: 800%;
+    img {
+      width: clamp(60px, 12vw, 120px);
+      height: clamp(60px, 12vw, 120px);
+      filter: drop-shadow(0 0 25px rgba(246, 195, 67, 0.4));
+    }
+  }
 
-      img {
-        width: 100px;
-        height: 100px;
-        background-color: white;
-        border-radius: 50%;
-      }
-    }
-    a {
-      color: red;
-      text-decoration: none;
-      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
-    }
+  p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.2rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.25rem;
+    text-transform: uppercase;
+    padding: 0.85rem 2.5rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f6c343, #f0932b);
+    color: #050816;
   }
 }

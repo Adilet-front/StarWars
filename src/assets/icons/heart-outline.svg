@@ -1,0 +1,10 @@
+<svg width="28" height="26" viewBox="0 0 28 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 23.4L12.54 22.06C6.16 16.2 2 12.42 2 8C2 4.22 4.84 1.5 8.5 1.5C10.62 1.5 12.65 2.5 14 3.98C15.35 2.5 17.38 1.5 19.5 1.5C23.16 1.5 26 4.22 26 8C26 12.42 21.84 16.2 15.46 22.07L14 23.4Z" stroke="url(#paint0_linear_heart_outline)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="paint0_linear_heart_outline" x1="2" y1="1.5" x2="26" y2="23.4" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F6C343"/>
+<stop offset="1" stop-color="#F0932B"/>
+</linearGradient>
+</defs>
+</svg>
+
